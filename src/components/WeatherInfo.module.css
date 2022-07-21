@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(236, 211, 253);
+    width: 90%;
+    margin: 2rem auto;
+    border-radius: 1rem;
+    animation: slideDown 0.4s ease-in;
+}
+
+.heading {
+    font-size: 3rem;
+    color: rgb(56, 43, 65);
+    margin: 1rem 0;
+}
+
+.temperature {
+    font-size: 10rem;
+    color: rgb(56, 43, 65);
+    margin: 0;
+}
+
+.weatherContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.weatherContainer img {
+    width: 10rem;
+    height: 10rem;
+}
+
+.temperatureContainer {
+    display: flex;
+}
+
+.temperatureContainer h2 {
+    margin: 1rem;
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
