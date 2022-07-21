@@ -10,6 +10,10 @@
     animation: slideDown 0.4s ease-in;
 }
 
+.container h2 {
+    color: rgb(56, 43, 65);
+}
+
 .heading {
     font-size: 3rem;
     color: rgb(56, 43, 65);
@@ -18,7 +22,7 @@
 
 .temperature {
     font-size: 10rem;
-    color: rgb(56, 43, 65);
+
     margin: 0;
 }
 
@@ -40,6 +44,7 @@
 
 .temperatureContainer h2 {
     margin: 1rem;
+
 }
 
 @keyframes slideDown {
@@ -52,4 +57,49 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@media only screen and (max-width: 850px) {
+    .container {
+        width: 70%;
+    }
+
+    .temperature {
+        font-size: 5rem;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .temperature {
+        font-size: 4rem;
+    }
+
+    .heading {
+        font-size: 2rem;
+    }
+
+    .weatherContainer {
+        flex-direction: column-reverse;
+    }
+
+    .temperatureContainer h2 {
+        margin: 1rem;
+    }
+}
+
+
+@media only screen and (max-width: 430px) {
+    .heading {
+        font-size: 1.5rem;
+    }
+
+    .weatherContainer img {
+        width: 8rem;
+        height: 8rem;
+    }
+
+    .temperature {
+        font-size: 3rem;
+    }
+
 }

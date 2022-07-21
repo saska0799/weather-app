@@ -5,10 +5,12 @@
     align-items: center;
     height: 100vh;
     animation: slideDown 0.4s ease-in;
+    width: 100%;
 }
 
 form {
     padding: 5rem;
+    max-width: 100%;
 }
 
 button {
@@ -44,4 +46,44 @@ p {
 
 .date {
     padding: 0;
+}
+
+@media only screen and (max-width: 850px) {
+    form {
+        padding: 3rem;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    form {
+        padding: 2rem 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input {
+        width: 80%;
+        margin: 0 2rem 2rem;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    form {
+        padding: 2rem 0;
+    }
+
+    button {
+        font-size: 1.8rem;
+    }
+
+}
+
+
+@media only screen and (max-width: 430px) {
+    button {
+        font-size: 1.5rem;
+    }
+
 }
