@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "./WeatherInfo.module.css";
 
+const WEATHER_URL = process.env.REACT_APP_WEATHER_APP_URL;
+
 const WeatherInfo = ({ data }) => {
-  const icon = `http://openweathermap.org/img/w/${data.weatherIcon}.png`;
+  const icon = `${WEATHER_URL}/img/w/${data.weatherIcon}.png`;
 
   return (
     <section className={styles.container}>

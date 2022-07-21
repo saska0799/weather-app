@@ -3,6 +3,9 @@ import WeatherInfo from "./components/WeatherInfo";
 import Card from "./components/UI/Card";
 import styles from "./App.module.css";
 
+const WEATHER_URL = process.env.REACT_APP_WEATHER_APP_URL;
+const WEATHER_TOKEN = process.env.REACT_APP_WEATHER_APP_TOKEN;
+
 function App() {
   const weatherInputRef = useRef();
   const [dataInfo, setDataInfo] = useState({});
@@ -15,7 +18,7 @@ function App() {
       e.preventDefault();
       try {
         const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?q=${weatherInputRef.current.value}&appid=f6fcc341a769f61ef12e0032417e1dd8&units=metric`
+          `${WEATHER_URL}/data/2.5/weather?q=${weatherInputRef.current.value}&appid=${WEATHER_TOKEN}&units=metric`
         );
 
         if (!response.ok) {
