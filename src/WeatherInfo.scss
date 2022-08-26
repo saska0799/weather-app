@@ -1,4 +1,4 @@
-.container {
+.dataContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,7 +10,7 @@
     animation: slideDown 0.4s ease-in;
 }
 
-.container h2 {
+.dataContainer h2 {
     color: rgb(56, 43, 65);
 }
 
