@@ -1,0 +1,51 @@
+@import '../utilities/mixins';
+@import '../utilities/variables';
+
+.search-form {
+    padding: 5rem;
+    max-width: 100%;
+}
+
+.search-input,
+.search-input:focus,
+.search-input:active {
+    background-color: transparent;
+    border-radius: .5rem;
+    width: 20rem;
+    padding: .5rem 1rem;
+    font-size: 2rem;
+    margin-right: 2rem;
+    border: .1rem solid $border-color;
+    outline: none;
+    color: $text-color-light;
+}
+
+.search-input::placeholder {
+    color: $text-color-light;
+}
+
+@media only screen and (max-width: 850px) {
+    .search-form {
+        padding: 3rem;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .search-form {
+        padding: 2rem 1rem;
+        @include flex(center,center,$direction:column);
+    }
+
+    .search-input,
+    .search-input:focus,
+    .search-input:active {
+        width: 80%;
+        margin: 0 2rem 2rem;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .search-form {
+        padding: 2rem 0;
+    }
+}

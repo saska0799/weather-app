@@ -1,7 +1,12 @@
 import React, { useRef, useState } from "react";
-import WeatherInfo from "./WeatherInfo";
-import Card from "./global/Card";
-import "./css/App.css";
+
+import WeatherInfo from "./layouts/WeatherInfo";
+import Card from "./components/ui/Card";
+import Button from "./components/ui/Button";
+import Form from "./components/form/Form";
+import Input from "./components/form/Input";
+
+import "./assets/css/main.css";
 
 const WEATHER_URL = process.env.REACT_APP_WEATHER_APP_URL;
 const WEATHER_TOKEN = process.env.REACT_APP_WEATHER_APP_TOKEN;
@@ -54,32 +59,19 @@ const App = () => {
     cityRef.current.value = "";
   };
 
-  let content = (
-    <p>No data yet! Type in city name to search for current weather! </p>
-  );
-
-  if (Object.keys(dataInfo).length > 0)
-    content = <WeatherInfo data={dataInfo} />;
-
-  if (error) content = <p>{error} </p>;
-
-  if (isLoading) content = <p>Loading...</p>;
-
-  const date = (
-    <p className="date">
-      &copy;{new Date().getFullYear()} Aleksandra Marinović
-    </p>
-  );
-
   return (
     <div className="container">
       <Card>
-        <form onSubmit={fetchWeather} className="form">
-          <input type="text" ref={cityRef} />
-          <button>Search</button>
-        </form>
-        <div>{content}</div>
-        {date}
+        <Form onSubmit={fetchWeather}>
+          <Input type="text" ref={cityRef} placeholder="Enter location" />
+          <Button>Search</Button>
+        </Form>
+        {!dataInfo && (
+          <p>No data yet! Type in city name to search for current weather! </p>
+        )}
+        {Object.keys(dataInfo).length > 0 && <WeatherInfo data={dataInfo} />}
+        {error && <p>{error}</p>}
+        {isLoading && <p>Loading...</p>}
       </Card>
     </div>
   );

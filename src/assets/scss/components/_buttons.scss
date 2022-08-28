@@ -1,0 +1,27 @@
+@import '../utilities/variables';
+
+.btn {
+    background-color: $btn-color;
+    border-radius: .5rem;
+    padding: .5rem 3rem;
+    font-size: 2rem;
+    border: none;
+    color: $text-color-light;
+}
+
+.btn:hover {
+    background-color: $btn-color-hover;
+}
+
+@media only screen and (max-width: 550px) {
+    .btn {
+        font-size: 1.8rem;
+    }
+}
+
+
+@media only screen and (max-width: 430px) {
+    .btn {
+        font-size: 1.5rem;
+    }
+}
