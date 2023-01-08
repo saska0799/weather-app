@@ -1,8 +1,46 @@
-import { useContext } from "react";
+import { useContext, useRef } from "react";
+import {
+  fetchForecastData,
+  fetchWeatherData,
+} from "../../context/WeatherDataActions";
 import WeatherContext from "../../context/WeatherDataContext";
 
 const Form = () => {
-  const { fetchData, cityRef } = useContext(WeatherContext);
+  const cityRef = useRef();
+  const { dispatch } = useContext(WeatherContext);
+
+  const fetchData = async (e) => {
+    e.preventDefault();
+
+    dispatch({
+      type: "SET_ERROR",
+      payload: false,
+    });
+
+    if (!cityRef.current.value) {
+      cityRef.current.focus();
+      dispatch({
+        type: "SET_ERROR",
+        payload: "Please type in the search field before trying to get data.",
+      });
+      return;
+    }
+
+    const weather = await fetchWeatherData("weather", cityRef.current.value);
+    const forecast = await fetchForecastData("forecast", cityRef.current.value);
+
+    if (!weather || !forecast) {
+      dispatch({
+        type: "SET_ERROR",
+        payload:
+          "Something went wrong! We weren't able to find a city you were searching for in our database. Please try serching for different one.",
+      });
+    } else {
+      dispatch({ type: "GET_WEATHER", payload: weather });
+      dispatch({ type: "GET_FORECAST", payload: forecast });
+    }
+  };
+
   return (
     <form onSubmit={fetchData}>
       <input
