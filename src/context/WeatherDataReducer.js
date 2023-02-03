@@ -10,9 +10,11 @@ export const weatherDataReducer = (state, action) => {
         ...state,
         forecastData: action.payload,
       };
+
     case "SET_ERROR":
       return {
         ...state,
+
         error: action.payload,
       };
     default:

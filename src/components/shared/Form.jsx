@@ -1,8 +1,5 @@
 import { useContext, useRef } from "react";
-import {
-  fetchForecastData,
-  fetchWeatherData,
-} from "../../context/WeatherDataActions";
+import { fetchForecastData, fetchWeatherData } from "../../utils/fetchData.js";
 import WeatherContext from "../../context/WeatherDataContext";
 
 const Form = () => {
@@ -42,14 +39,20 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={fetchData}>
-      <input
-        type="text"
-        ref={cityRef}
-        placeholder="Please enter a city"
-        className="rounded-full border-solid border-2 border-slate-200 p-3 mr-5 focus:outline-none"
-      />
-      <button className="bg-red-200 p-3 px-10 rounded-full">Search</button>
+    <form
+      onSubmit={fetchData}
+      className="flex flex-col justify-center text-slate-600"
+    >
+      <label className="uppercase font-bold">Location</label>
+      <div className="flex justify-between border-b-4 border-pink-500 md:w-96 w-72">
+        <input
+          type="text"
+          ref={cityRef}
+          placeholder="Please enter a city"
+          className="bg-transparent mr-5 focus:outline-none"
+        />
+        <button className="bg-transparent p-3 ">Set</button>
+      </div>
     </form>
   );
 };
