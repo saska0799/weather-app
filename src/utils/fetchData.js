@@ -1,4 +1,4 @@
-import { buildUrl } from "../lib/buildUrl";
+import { buildUrl } from "./buildUrl";
 import { fetchData } from "../lib/fetch";
 
 export const fetchWeatherData = async (prognosis, city) => {

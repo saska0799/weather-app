@@ -44,14 +44,14 @@ const Form = () => {
       className="flex flex-col justify-center text-slate-600"
     >
       <label className="uppercase font-bold">Location</label>
-      <div className="flex justify-between border-b-4 border-pink-500 md:w-96 w-72">
+      <div className="flex justify-between border-b-4 border-[#B08BBB] md:w-96 w-72">
         <input
           type="text"
           ref={cityRef}
           placeholder="Please enter a city"
           className="bg-transparent mr-5 focus:outline-none"
         />
-        <button className="bg-transparent p-3 ">Set</button>
+        <button className="bg-transparent p-3 hover:text-[#ECA869]">Set</button>
       </div>
     </form>
   );
